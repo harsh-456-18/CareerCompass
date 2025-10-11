@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .dashboard-container
+    .container.mt-5.pt-5
+      h2.text-center.text-white.mb-4 Welcome to Your Dashboard
+      p.text-center.text-white.lead Manage your goals and start your personalized roadmap!
+
+      .row.justify-content-center
+        .col-md-6.bg-light.p-4.rounded.shadow-sm
+          form
+            .form-group
+              label(for='careerGoal') Select Your Career Goal:
+              select.form-control#careerGoal(name='careerGoal')
+                option(value='') -- Choose a Goal --
+                option(value='ml') Machine Learning Engineer
+                option(value='ds') Data Scientist
+                option(value='wd') Web Developer
+                option(value='da') Data Analyst
+                option(value='uiux') UI/UX Designer
+                option(value='pm') Product Manager
+
+            .form-group.mt-3
+              label(for='resumeScore') Resume Score (optional)
+              input.form-control(type='number', name='resumeScore', id='resumeScore', placeholder='Enter your resume score')
+
+            .text-center.mt-4
+              button.btn.btn-danger(type='submit') Start Roadmap

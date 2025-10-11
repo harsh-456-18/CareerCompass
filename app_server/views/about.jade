@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  .about-container
+    .container.mt-5.pt-5
+      h2.text-center.text-white.mb-4 About Us
+      p.text-center.text-white.lead Learn more about our journey, mission, and team.
+
+      // ===== Origin Story =====
+      .bg-light.p-4.rounded.shadow-sm.mb-4
+        h4.text-dark.mb-3 Our Origin Story
+        p
+          | We started this project with a vision to empower aspiring professionals with the right tools, guidance, and resources to accelerate their career growth. 
+          | From a small group of passionate developers to a growing community, our journey has been fueled by learning, collaboration, and innovation.
+
+      // ===== Mission & Vision =====
+      .bg-light.p-4.rounded.shadow-sm.mb-4
+        h4.text-dark.mb-3 Mission & Vision
+        ul
+          li
+            strong Mission: 
+            |  Provide accessible, practical, and structured learning paths and career resources for students and professionals.
+          li
+            strong Vision: 
+            |  Create a global community where every learner can achieve their career goals efficiently and confidently.
+
+      // ===== Team Section (Optional) =====
+      .bg-light.p-4.rounded.shadow-sm.mb-4
+        h4.text-dark.mb-3 Our Team
+        p
+          | Meet our passionate team behind the project. Each member brings unique expertise, creativity, and dedication to ensure the platform is useful and inspiring.
+        .team-members.d-flex.flex-wrap
+          .team-member.m-2.p-3.bg-white.rounded.shadow-sm.text-center
+            img(src='https://via.placeholder.com/120', alt='Team Member', class='rounded-circle mb-2')
+            h6.mb-0 John Doe
+            small Frontend Developer
+          .team-member.m-2.p-3.bg-white.rounded.shadow-sm.text-center
+            img(src='https://via.placeholder.com/120', alt='Team Member', class='rounded-circle mb-2')
+            h6.mb-0 Jane Smith
+            small Backend Developer
+          // Add more team members here as needed
+
+      // ===== Vision Quote / Tagline =====
+      .bg-warning.text-dark.p-4.rounded.shadow-sm.text-center
+        h5.mb-0
+          | "Empowering every learner to achieve their dreams, one step at a time."

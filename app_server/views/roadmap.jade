@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  .roadmap-container
+    .container.mt-5.pt-5
+      h2.text-center.text-white.mb-4 Career Roadmap
+      p.text-center.text-white.lead Follow this step-by-step plan from Beginner to Advanced and track your progress.
+
+      // Progress bar
+      .progress.mt-4.mb-4(style='height:25px;')
+        .progress-bar.bg-warning(role='progressbar', style='width: 0%;', id='progressBar') 0%
+
+      // Checklist
+      .bg-light.p-4.rounded.shadow-sm
+        - var steps = []
+        - steps.push({title: 'Learn Programming Basics', link: 'https://www.w3schools.com/python/'})
+        - steps.push({title: 'Understand Data Structures', link: 'https://www.geeksforgeeks.org/data-structures/'})
+        - steps.push({title: 'Learn Machine Learning Fundamentals', link: 'https://www.coursera.org/learn/machine-learning'})
+        - steps.push({title: 'Work on Real Projects', link: 'https://www.kaggle.com/'})
+        - steps.push({title: 'Build an Online Portfolio', link: 'https://github.com/'})
+        - steps.push({title: 'Apply for Internships/Jobs', link: 'https://www.linkedin.com/jobs/'})
+
+        each step, index in steps
+          .form-check.mb-3
+            input.form-check-input(type='checkbox', id='step' + index, onchange='updateProgress()')
+            label.form-check-label(for='step' + index)= step.title
+            a.ml-2(href=step.link, target='_blank') [Resources]
+
+      .text-center.mt-4
+        button.btn.btn-danger.mr-2(type='button', onclick='downloadPDF()') Download PDF
+        button.btn.btn-outline-light(type='button', onclick='saveProgress()') Save Progress (optional)
+
+    // JS script for progress tracking
+    script.
+      function updateProgress() {
+        const steps = document.querySelectorAll('.form-check-input');
+        const completed = Array.from(steps).filter(s => s.checked).length;
+        const percent = Math.round((completed / steps.length) * 100);
+        const bar = document.getElementById('progressBar');
+        bar.style.width = percent + '%';
+        bar.innerText = percent + '%';
+      }
+
+      function downloadPDF() {
+        alert('PDF Download feature coming soon!');
+      }
+
+      function saveProgress() {
+        alert('Progress saved locally (demo).');
+      }

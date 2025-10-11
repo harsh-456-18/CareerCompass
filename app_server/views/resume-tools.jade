@@ -1,0 +1,113 @@
+extends layout
+
+block content
+  .resume-container
+    .container.mt-5.pt-5
+      h2.text-center.text-white.mb-4 Resume Builder & Analyzer
+      p.text-center.text-white.lead Create, upload, and improve your resume with instant feedback.
+
+      // ===== Resume Builder Form =====
+      .bg-light.p-4.rounded.shadow-sm.mt-4
+        h4.text-dark.mb-3 Build Your Resume
+        form#resumeForm
+          .form-group.mb-3
+            label.form-label(for='name') Full Name
+            input.form-control(type='text', id='name', placeholder='Enter your full name', required)
+
+          .form-group.mb-3
+            label.form-label(for='email') Email
+            input.form-control(type='email', id='email', placeholder='Enter your email', required)
+
+          .form-group.mb-3
+            label.form-label(for='skills') Skills
+            input.form-control(type='text', id='skills', placeholder='E.g. JavaScript, Python, React')
+
+          .form-group.mb-3
+            label.form-label(for='experience') Experience
+            textarea.form-control(id='experience', rows='3', placeholder='Describe your experience')
+
+          .form-group.mb-3
+            label.form-label(for='education') Education
+            textarea.form-control(id='education', rows='2', placeholder='Enter your education details')
+
+          .text-center
+            button.btn.btn-primary.mr-2(type='button', onclick='analyzeResume()') Analyze Resume
+            button.btn.btn-success(type='button', onclick='downloadPDF()') Download as PDF
+
+      // ===== Upload Resume Section =====
+      .bg-secondary.text-white.p-4.rounded.shadow-sm.mt-4
+        h4.mb-3 Upload & Analyze Resume
+        input.form-control.mb-3(type='file', id='resumeUpload', accept='.pdf,.doc,.docx')
+        button.btn.btn-warning(type='button', onclick='uploadAndAnalyze()') Upload & Analyze
+
+      // ===== Results Section =====
+      .bg-dark.text-white.p-4.rounded.shadow-sm.mt-4#results(style='display:none;')
+        h4.text-warning ATS Analysis Results
+        p#atsScore
+        ul#feedbackList
+
+      // ===== Tips Section =====
+      .bg-info.text-white.p-4.rounded.shadow-sm.mt-4
+        h4.mb-2 Tips for Improvement
+        ul
+          li Keep your resume to one page if possible.
+          li Use strong action verbs (e.g., "Developed", "Led", "Implemented").
+          li Quantify achievements (e.g., "Improved efficiency by 20%").
+          li Tailor your resume to each job description.
+
+    // ===== JavaScript Logic =====
+    script.
+      function analyzeResume() {
+        const name = document.getElementById('name').value.trim();
+        const skills = document.getElementById('skills').value.trim();
+        const experience = document.getElementById('experience').value.trim();
+
+        if (!name || !skills || !experience) {
+          alert('Please fill in all required fields before analyzing.');
+          return;
+        }
+
+        const score = Math.floor(Math.random() * 21) + 80; // Simulated ATS score (80–100)
+        const feedback = [
+          'Consider adding more measurable achievements.',
+          'Include keywords relevant to your desired job role.',
+          'Make sure your formatting is ATS-friendly (no tables or images).'
+        ];
+
+        const results = document.getElementById('results');
+        const scoreEl = document.getElementById('atsScore');
+        const feedbackList = document.getElementById('feedbackList');
+
+        scoreEl.innerText = 'Your ATS Score: ' + score + '%';
+        feedbackList.innerHTML = '';
+        feedback.forEach(f => {
+          const li = document.createElement('li');
+          li.innerText = f;
+          feedbackList.appendChild(li);
+        });
+
+        results.style.display = 'block';
+      }
+
+      function uploadAndAnalyze() {
+        const file = document.getElementById('resumeUpload').files[0];
+        if (!file) {
+          alert('Please upload a resume file first.');
+          return;
+        }
+
+        alert('Analyzing your uploaded resume...');
+        setTimeout(() => {
+          const results = document.getElementById('results');
+          const scoreEl = document.getElementById('atsScore');
+          const feedbackList = document.getElementById('feedbackList');
+
+          scoreEl.innerText = 'Your ATS Score: 85%';
+          feedbackList.innerHTML = '<li>Good keyword usage detected.</li><li>Consider improving formatting consistency.</li>';
+          results.style.display = 'block';
+        }, 1000);
+      }
+
+      function downloadPDF() {
+        alert('PDF download feature coming soon!');
+      }

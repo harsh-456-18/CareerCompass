@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  .contact-container
+    .container.mt-5.pt-5
+      h2.text-center.text-white.mb-4 Contact Us
+      p.text-center.text-white.lead We’d love to hear from you! Reach out for support, feedback, or general inquiries.
+
+      // ===== Contact Form =====
+      .bg-light.p-4.rounded.shadow-sm.mb-4
+        h4.text-dark.mb-3 Send a Message
+        form#contactForm
+          .form-group.mb-3
+            label.form-label(for='name') Name
+            input.form-control(type='text', id='name', placeholder='Enter your name', required)
+
+          .form-group.mb-3
+            label.form-label(for='email') Email
+            input.form-control(type='email', id='email', placeholder='Enter your email', required)
+
+          .form-group.mb-3
+            label.form-label(for='message') Message
+            textarea.form-control(id='message', rows='5', placeholder='Type your message here...', required)
+
+          .text-center
+            button.btn.btn-primary(type='submit') Send Message
+
+      // ===== Support Info =====
+      .bg-dark.text-white.p-4.rounded.shadow-sm.mb-4
+        h4.text-warning.mb-2 Need Help?
+        p
+          | Email us at 
+          a.text-info(href='mailto:support@example.com') support@example.com
+          |  or chat with us on 
+          a.text-info(href='#') Live Chat
+
+      // ===== FAQ Section (Optional) =====
+      .bg-secondary.text-white.p-4.rounded.shadow-sm.mb-4
+        h4.mb-3 Frequently Asked Questions
+        ul
+          li What is the response time for support? – Typically within 24 hours.
+          li How can I reset my password? – Click on “Forgot Password” on the login page.
+          li Can I request new features? – Yes, contact us using the form above.
+
+      // ===== Terms & Privacy =====
+      .text-center.mt-4.mb-5
+        a.text-white.mr-3(href='#') Terms of Service
+        a.text-white.ml-3(href='#') Privacy Policy
+
+    // ===== Optional JS =====
+    script.
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent.');
+        this.reset();
+      });
