@@ -6,8 +6,8 @@ legend {
  font-family: 'Lobster', cursive;
 }
 .navbar {
- background-color: #ad1d28;
- border-color: #911821;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
 }
 .navbar-light .navbar-brand {
  font-family: 'Lobster', cursive;
@@ -26,21 +26,21 @@ legend {
  color: white;
 }
 .card {
- background-color: #469ea8;
+ background-color: #28242c;
  padding: 1rem;
 }
 .card-primary {
- border-color: #a2ced3;
+ border-color: #28242c;
  margin-bottom: 0.5rem;
 }
 .banner {
  margin-top: 4em;
- border-bottom: 1px solid #469ea8;
+ border-bottom: 1px solid #28242c;
  margin-bottom: 1.5em;
  padding-bottom: 0.5em;
 }
 .review-header {
- background-color: #31727a;
+ background-color: #28242c;
  padding-top: 0.5em;
  padding-bottom: 0.5em;
  margin-bottom: 0.5em;
@@ -51,8 +51,8 @@ legend {
  margin-bottom: 0.5em;
 }
 .badge-default, .btn-primary {
- background-color: #ad1d28;
- border-color: #911821;
+ background-color: #a215af;
+ border-color: #a215af;
 }
 h4 a, h4 a:hover {
  color: #fff;
@@ -81,10 +81,10 @@ a:hover {
  color:#fff
 }
 body {
- font-family: "Cabin", Arial, sans-serif;
- color: #fff;
- background-color: #108a93;
-} 
+  font-family: "Cabin", Arial, sans-serif;
+  color: #000;
+  background-color: #d8b4f8 ;
+}
 .dashboard-container {
   background-color: #2c2929;
   min-height: 100vh;
@@ -106,7 +106,7 @@ body {
 }
 
 .dashboard-container button.btn-danger {
-  background-color: #a30000;
+  background-color: #28242c;
   border: none;
 }
 
@@ -263,12 +263,16 @@ button.btn:hover {
 }
 /* About Us Page Styles */
 .about-container {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #1a1a2e, #85a1e7);
-    padding-bottom: 50px;
-    padding-top: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0033, #4b0082);
+  color: #f0eaff;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
 }
+
+
+
+
 
 .about-container h2 {
     font-size: 2.5rem;
@@ -313,5 +317,3 @@ button.btn:hover {
     color: #020202;
     font-size: 0.85rem;
 }
-
-

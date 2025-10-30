@@ -15,9 +15,6 @@ module.exports.dashboard = (req, res) => {
   res.render('dashboard');
 };
 
-module.exports.roadmap = (req, res) => {
-  res.render('roadmap');
-};
 
 module.exports.resume = (req, res) => {
   res.render('resume-tools');
